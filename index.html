@@ -1,0 +1,512 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Study Workspace</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+<style>
+/* Product page v3: a dark hero band (always dark) carrying the live Q&A demo, then the
+   certifications shelf, a bento of the four capabilities, the teaser, creators, FAQ and a dark close. */
+:root{
+  --bg:#FFFFFF; --bg-2:#F5F5F8; --bg-3:#ECEBF2;
+  --ink:#15141D; --ink-2:#484657; --ink-3:#636176;
+  --line:#E4E3EC; --line-2:#CFCDDB;
+  --accent:#4F3BD1; --accent-hover:#3F2DB8; --accent-ink:#FFFFFF; --accent-soft:#EEEBFE;
+  --focus:#0E7C7B;
+  --ok:#17663A; --ok-bg:#E6F4EB; --ok-line:#2E8A4E;
+  --no:#B42318; --no-bg:#FCECEA; --no-line:#D14334;
+  --exam:#A3530A; --exam-bg:#FDEFD9;
+  --sel-bg:#DCD6FC;
+  --shot-shadow:0 1px 1px rgba(21,20,29,.04),0 12px 32px -8px rgba(21,20,29,.18);
+  --band:#0B0A12; --band-dot:rgba(179,166,255,.10);
+  --font:"Commissioner","Noto Sans","Segoe UI",system-ui,sans-serif;
+  --font-read:"Literata","Noto Serif",Georgia,serif;
+  --max:1160px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E0D15; --bg-2:#15141E; --bg-3:#1D1C29;
+  --ink:#EEEDF6; --ink-2:#B7B5C9; --ink-3:#928FA8;
+  --line:#25232F; --line-2:#363445;
+  --accent:#B3A6FF; --accent-hover:#C9C0FF; --accent-ink:#17123F; --accent-soft:#221D47;
+  --focus:#5ED3D6;
+  --ok:#6FD093; --ok-bg:#11291B; --ok-line:#3E9E62;
+  --no:#FF8A7E; --no-bg:#331513; --no-line:#E0604F;
+  --exam:#F5B65C; --exam-bg:#2E210B;
+  --sel-bg:#3A3277;
+  --shot-shadow:0 1px 1px rgba(0,0,0,.3),0 16px 36px -10px rgba(0,0,0,.7);
+  --band:#08070D;
+  color-scheme:dark}
+  :root:not([data-theme="light"]) .l{display:none} :root:not([data-theme="light"]) .d{display:block}
+}
+:root[data-theme="dark"]{
+  --bg:#0E0D15; --bg-2:#15141E; --bg-3:#1D1C29;
+  --ink:#EEEDF6; --ink-2:#B7B5C9; --ink-3:#928FA8;
+  --line:#25232F; --line-2:#363445;
+  --accent:#B3A6FF; --accent-hover:#C9C0FF; --accent-ink:#17123F; --accent-soft:#221D47;
+  --focus:#5ED3D6;
+  --ok:#6FD093; --ok-bg:#11291B; --ok-line:#3E9E62;
+  --no:#FF8A7E; --no-bg:#331513; --no-line:#E0604F;
+  --exam:#F5B65C; --exam-bg:#2E210B;
+  --sel-bg:#3A3277;
+  --shot-shadow:0 1px 1px rgba(0,0,0,.3),0 16px 36px -10px rgba(0,0,0,.7);
+  --band:#08070D;
+  color-scheme:dark}
+:root[data-theme="dark"] .l{display:none} :root[data-theme="dark"] .d{display:block}
+
+/* the dark band keeps the dark palette in both themes */
+.dark{
+  --bg:#13121C; --bg-2:#1A1925; --bg-3:#24222F;
+  --ink:#F1F0F8; --ink-2:#BBB9CC; --ink-3:#9895AE;
+  --line:#2A2836; --line-2:#3B3949;
+  --accent:#B3A6FF; --accent-hover:#C9C0FF; --accent-ink:#17123F; --accent-soft:#272150;
+  --focus:#5ED3D6;
+  --ok:#6FD093; --ok-bg:#11291B; --ok-line:#3E9E62;
+  --no:#FF8A7E; --no-bg:#331513; --no-line:#E0604F;
+  --exam:#F5B65C; --exam-bg:#2E210B;
+  --sel-bg:#3A3277;
+  --shot-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 24px 48px -16px rgba(0,0,0,.8);
+  color-scheme:dark;
+  background-color:var(--band);
+  background-image:radial-gradient(var(--band-dot) 1px,transparent 1.2px);
+  background-size:22px 22px;
+  color:var(--ink);
+}
+.dark .l{display:none} .dark .d{display:block}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--sel-bg);color:var(--ink)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:8px}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance}
+p{margin:0}
+img{display:block}
+.d{display:none}
+.wrap{max-width:var(--max);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:12px;font:600 16px/1 var(--font);text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:background-color .16s ease,color .16s ease,box-shadow .16s ease}
+.btn svg{width:16px;height:16px;flex:none;transition:transform .2s cubic-bezier(.2,.7,.2,1)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-primary:hover svg{transform:translateX(2px)}
+.btn-quiet{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn-quiet:hover{background:var(--bg-2)}
+.btn[disabled]{background:var(--bg-3);color:var(--ink-3);cursor:not-allowed}
+
+/* header (sits on the dark band) */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--band)}
+.top.dark{position:sticky;top:env(safe-area-inset-top,0px);z-index:19;background-color:color-mix(in srgb,var(--band) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;background-image:none;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;text-decoration:none;letter-spacing:-.01em}
+.mono{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--accent);color:var(--accent-ink);font:600 17px/1 var(--font-read)}
+.nav{display:flex;gap:2px}
+.nav a{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:8px;transition:color .15s,background-color .15s}
+.nav a:hover{color:var(--ink);background:var(--bg-2)}
+.top-cta{margin-left:auto;display:flex;align-items:center;gap:8px}
+.top-cta .btn{min-height:38px;padding:0 14px;font-size:15px;border-radius:10px}
+.top-cta .signin{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none;padding:8px 10px;border-radius:8px}
+.top-cta .signin:hover{color:var(--ink)}
+@media (max-width:880px){.nav{display:none}}
+@media (max-width:420px){.top-cta .signin{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,7vw,88px) 0;overflow:hidden;margin-top:-1px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,500px);gap:clamp(32px,5vw,72px);align-items:start}
+.hero h1{font-size:clamp(40px,4.4vw,60px);line-height:1.02;letter-spacing:-.035em}
+.hero h1 .q{color:var(--accent)}
+.hero .sub{font-size:clamp(18px,1.5vw,20px);line-height:1.55;color:var(--ink-2);max-width:46ch;margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:36px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:28px;font-size:15px;color:var(--ink-3);list-style:none;padding:0}
+.hero .meta li{display:inline-flex;align-items:center;gap:8px}
+.hero .meta svg{width:16px;height:16px;color:var(--accent)}
+.hero-demo{padding-bottom:clamp(56px,7vw,96px);min-width:0}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.hero h1{max-width:16ch}}
+
+/* demo card (looks like the app) */
+.demo{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:var(--shot-shadow);min-width:0;position:relative}
+@media (max-width:520px){.demo{padding:20px 16px 18px}}
+.demo-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px;color:var(--ink-3)}
+.tag{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2);font-weight:500;font-size:14px}
+.tag.note{background:var(--exam-bg);color:var(--exam)}
+.demo-count{margin-left:auto;font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.demo-q{font:600 clamp(19px,1.8vw,22px)/1.38 var(--font-read);letter-spacing:-.005em;margin-top:16px}
+.opts{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:grid;grid-template-columns:24px 20px minmax(0,1fr);gap:4px 12px;align-items:start;padding:13px 16px;border-radius:12px;border:1.5px solid var(--line-2);cursor:pointer;transition:border-color .15s,background-color .15s}
+.opt label:hover{border-color:var(--ink-3)}
+.radio{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--ink-3);display:grid;place-items:center;margin-top:1px}
+.radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);transform:scale(0);transition:transform .15s cubic-bezier(.2,.7,.2,1)}
+.letter{font-weight:600;color:var(--ink-2);margin-top:-1px}
+.otext{min-width:0}
+.opt input:checked + label{border-color:var(--accent);background:var(--accent-soft)}
+.opt input:checked + label .radio{border-color:var(--accent)}
+.opt input:checked + label .radio::after{transform:scale(1)}
+.opt input:focus-visible + label{outline:2px solid var(--focus);outline-offset:2px}
+.why{grid-column:3;display:grid;gap:4px;font-size:15px;line-height:1.5;color:var(--ink-2);max-height:0;opacity:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.7,.2,1),opacity .3s ease,margin .3s}
+.verdict{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px}
+.verdict svg{width:16px;height:16px}
+.graded .opt label{cursor:default}
+.graded .why{max-height:12em;opacity:1;margin-top:6px}
+.graded .opt:nth-child(2) .why{transition-delay:.06s}.graded .opt:nth-child(3) .why{transition-delay:.12s}.graded .opt:nth-child(4) .why{transition-delay:.18s}
+.graded .opt.is-correct label{border-color:var(--ok-line);background:var(--ok-bg)}
+.graded .opt.is-wrong label{border-color:var(--no-line);background:var(--no-bg)}
+.graded .opt.is-correct .verdict{color:var(--ok)}
+.graded .opt.is-wrong .verdict{color:var(--no)}
+.graded .opt.is-other .verdict{color:var(--ink-3)}
+.demo-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:18px}
+.demo-foot .hint{font-size:14px;color:var(--ink-3)}
+.linkbtn{background:none;border:0;padding:8px 4px;font:500 15px var(--font);color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-2);cursor:pointer;border-radius:6px}
+.linkbtn:hover{color:var(--ink);text-decoration-color:currentColor}
+.result{margin-top:16px;padding:16px 18px;border-radius:12px;background:var(--bg-2);font-size:15px;line-height:1.55;color:var(--ink-2)}
+.result b{color:var(--ink);font-weight:600;display:block;margin-bottom:2px;font-size:16px}
+.result .guide{display:inline-flex;align-items:center;gap:6px;margin-top:10px;color:var(--accent);font-weight:600;text-decoration:none}
+.result .guide svg{width:16px;height:16px}
+.caption{font-size:14px;color:var(--ink-3);margin:14px 0 0}
+
+/* section rhythm */
+.sec{padding-block:clamp(88px,11vw,136px) 0}
+.sec-h{font-size:clamp(32px,4.2vw,52px);line-height:1.08;letter-spacing:-.03em;max-width:20ch}
+.sec-p{font-size:clamp(17px,1.4vw,19px);color:var(--ink-2);max-width:58ch;margin-top:18px}
+
+/* certifications shelf */
+.certs{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.cert{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 14px;align-items:center;padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:var(--bg);transition:border-color .15s}
+.cert:hover{border-color:var(--line-2)}
+.cert .vendor{grid-row:span 2;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:700;font-size:14px;letter-spacing:.01em;background:var(--accent-soft);color:var(--accent)}
+.cert b{font-weight:600;font-size:16px;line-height:1.3;letter-spacing:-.01em}
+.cert span{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:48px}
+.tile{position:relative;border-radius:24px;background:var(--bg-2);border:1px solid var(--line);overflow:hidden;display:grid;min-width:0}
+.tile-copy{padding:28px 28px 0;display:grid;gap:10px;align-content:start;min-width:0}
+.tile h3{font-size:clamp(21px,1.9vw,24px);letter-spacing:-.02em;line-height:1.25}
+.tile p{color:var(--ink-2);font-size:16px;max-width:44ch}
+.tile .shot{position:relative;align-self:end;justify-self:center;width:min(340px,86%);height:300px;margin-top:24px;border-radius:20px 20px 0 0;border:1px solid var(--line);border-bottom:0;overflow:hidden;background:var(--bg);container-type:inline-size;box-shadow:var(--shot-shadow)}
+.tile .shot img{position:absolute;left:0;width:100%;height:auto;aspect-ratio:780/1688;top:calc(var(--y) * -100cqw / 390)}
+.t-explain{grid-column:span 4;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:8px}
+.t-explain .tile-copy{padding-bottom:28px}
+.t-explain .shot{height:380px;margin-top:28px;margin-right:28px;width:100%}
+.t-exam{grid-column:span 2}
+.t-progress{grid-column:span 2}
+.t-share{grid-column:span 4;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:8px}
+.t-share .tile-copy{padding-bottom:28px}
+.t-share .shot{height:320px;margin-top:28px;margin-right:28px;width:100%}
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 28px 28px;border-top:1px solid var(--line)}
+.nums div{padding:16px 0 4px;display:grid;gap:2px}
+.nums div:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+.nums div:nth-child(n+3){border-top:1px solid var(--line)}
+.nums b{font-size:28px;font-weight:600;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.nums span{font-size:14px;color:var(--ink-3)}
+.no-score{margin:0 28px 28px;font-size:14px;color:var(--ink-3)}
+.no-score s{text-decoration-thickness:1.5px}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tile .tag{background:var(--bg);box-shadow:inset 0 0 0 1px var(--line)}
+@media (max-width:980px){
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .t-explain,.t-share{grid-column:span 2;grid-template-columns:1fr}
+  .t-explain .shot,.t-share .shot{margin-right:0;width:min(340px,86%);height:320px}
+  .t-exam,.t-progress{grid-column:span 1}
+}
+@media (max-width:640px){.bento{grid-template-columns:1fr}.t-explain,.t-share,.t-exam,.t-progress{grid-column:span 1}.tile-copy{padding:22px 20px 0}.nums{margin:18px 20px 22px}.no-score{margin:0 20px 22px}}
+
+/* teaser */
+.teaser-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 32px}
+.teaser-frame{margin-top:32px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);aspect-ratio:16/9;max-width:100%}
+.teaser-frame video{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg-2)}
+@media (max-width:520px){.teaser-frame{border-radius:18px}}
+
+/* creators */
+.dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;margin:44px 0 0;border-top:1px solid var(--line)}
+.dl div{padding:22px 0;border-bottom:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.dl dt{font-weight:600;font-size:17px;letter-spacing:-.01em}
+.dl dd{margin:0;color:var(--ink-2);font-size:16px}
+.dl code{font-family:var(--font);font-weight:600;color:var(--ink);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:14px;white-space:nowrap}
+@media (max-width:760px){.dl{grid-template-columns:1fr}}
+
+/* faq */
+.faq{margin-top:44px;border-top:1px solid var(--line);max-width:820px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{width:20px;height:20px;flex:none;color:var(--ink-3);transition:transform .2s cubic-bezier(.2,.7,.2,1)}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{color:var(--ink-2);padding:0 0 24px;max-width:64ch}
+
+/* close (dark band) */
+.close{margin-top:clamp(96px,12vw,160px);padding-block:clamp(72px,9vw,120px)}
+.close-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.close h2{font-size:clamp(36px,5vw,60px);line-height:1.04;letter-spacing:-.035em;max-width:16ch}
+.close p{color:var(--ink-2);margin-top:16px;font-size:18px;max-width:46ch}
+.close .url{font-size:15px;color:var(--ink-3);margin-top:12px;text-align:right}
+@media (max-width:760px){.close-in{grid-template-columns:1fr;align-items:start}.close .url{text-align:left}}
+
+footer{padding-block:28px 36px;font-size:14px;border-top:1px solid var(--line);background-image:none}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;color:var(--ink-3)}
+footer a{color:var(--ink-2);text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .love a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+footer .love a:hover{text-decoration-color:currentColor}
+footer .love svg{width:14px;height:14px;color:var(--no);vertical-align:-2px;margin-inline:2px}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.25"/><path d="M5.3 8.2l1.8 1.8 3.6-3.8"/></symbol>
+  <symbol id="i-no" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.25"/><path d="M5.8 5.8l4.4 4.4M10.2 5.8l-4.4 4.4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></symbol>
+  <symbol id="i-book" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h4a2 2 0 0 1 2 2v8a1.5 1.5 0 0 0-1.5-1.5H2zM14 3h-4a2 2 0 0 0-2 2v8a1.5 1.5 0 0 1 1.5-1.5H14z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 16 16" fill="currentColor"><path d="M8 14s-5.5-3.3-5.5-7.3A3.1 3.1 0 0 1 8 4.9a3.1 3.1 0 0 1 5.5 1.8C13.5 10.7 8 14 8 14z"/></symbol>
+</svg>
+
+<header class="top dark" id="top-bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mono" aria-hidden="true">Σ</span>Study Workspace</a>
+    <nav class="nav" aria-label="Κύρια">
+      <a href="#certifications" data-certs-link>Certifications</a>
+      <a href="#features">Δυνατότητες</a>
+      <a href="#creators">Για δημιουργούς</a>
+      <a href="#faq">Συχνές ερωτήσεις</a>
+    </nav>
+    <div class="top-cta">
+      <a class="signin" href="https://study.theodosiou.me">Σύνδεση</a>
+      <a class="btn btn-primary" href="https://study.theodosiou.me">Ξεκίνα δωρεάν</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero dark" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Προετοιμάσου για το certification σου, <span class="q">μία ερώτηση τη φορά.</span></h1>
+      <p class="sub">Ερωταπαντήσεις με εξήγηση σε κάθε επιλογή, εξάσκηση ανά ενότητα και δοκιμαστικές εξετάσεις με αληθινό χρονόμετρο. Ξέρεις πού στέκεσαι πριν μπεις στην αίθουσα.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://study.theodosiou.me">Ξεκίνα την εξάσκηση <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-quiet" href="#features">Πώς δουλεύει</a>
+      </div>
+      <ul class="meta">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Δωρεάν</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Ελληνικά και αγγλικά</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Web τώρα, iOS και Android σύντομα</li>
+      </ul>
+    </div>
+
+    <div class="hero-demo">
+      <form class="demo" id="demo" aria-labelledby="demo-q" novalidate>
+        <div class="demo-top">
+          <span class="tag">AWS · Ασφάλεια και IAM</span>
+          <span class="tag note">Ενδεικτική ερώτηση</span>
+          <span class="demo-count">1 / 20</span>
+        </div>
+        <p class="demo-q" id="demo-q">Σύμφωνα με το μοντέλο κοινής ευθύνης, ποιος είναι υπεύθυνος για τις ενημερώσεις ασφαλείας του λειτουργικού συστήματος σε ένα Amazon EC2 instance;</p>
+        <ul class="opts" role="radiogroup" aria-labelledby="demo-q">
+          <li class="opt" data-ok="0"><input type="radio" name="a" id="o1" value="1"><label for="o1"><span class="radio" aria-hidden="true"></span><span class="letter">Α</span><span class="otext">Η AWS</span><span class="why" aria-live="polite"><span class="verdict"></span><span>Η AWS διαχειρίζεται το υλικό και το hypervisor, όχι το guest λειτουργικό σύστημα.</span></span></label></li>
+          <li class="opt" data-ok="1"><input type="radio" name="a" id="o2" value="2"><label for="o2"><span class="radio" aria-hidden="true"></span><span class="letter">Β</span><span class="otext">Ο πελάτης</span><span class="why"><span class="verdict"></span><span>Στο EC2 το guest OS είναι ευθύνη του πελάτη.</span></span></label></li>
+          <li class="opt" data-ok="0"><input type="radio" name="a" id="o3" value="3"><label for="o3"><span class="radio" aria-hidden="true"></span><span class="letter">Γ</span><span class="otext">Κανείς, οι ενημερώσεις εφαρμόζονται αυτόματα</span><span class="why"><span class="verdict"></span><span>Δεν εφαρμόζονται αυτόματα, εκτός αν τις ρυθμίσεις εσύ, π.χ. με το AWS Systems Manager.</span></span></label></li>
+          <li class="opt" data-ok="0"><input type="radio" name="a" id="o4" value="4"><label for="o4"><span class="radio" aria-hidden="true"></span><span class="letter">Δ</span><span class="otext">Ο δημιουργός του AMI</span><span class="why"><span class="verdict"></span><span>Το AMI είναι μόνο η αφετηρία. Η συντήρηση μετά την εκκίνηση είναι δική σου.</span></span></label></li>
+        </ul>
+        <div class="demo-foot" id="demo-foot">
+          <button class="btn btn-primary" type="submit" id="check" disabled>Έλεγχος απάντησης</button>
+          <button class="linkbtn" type="button" id="dk">Δεν ξέρω</button>
+          <span class="hint" id="hint">Διάλεξε μία απάντηση για να δεις γιατί.</span>
+        </div>
+        <div class="result" id="result" role="status" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="sec" id="certifications" hidden>
+    <div class="wrap">
+      <h2 class="sec-h">Certifications που μπορείς να ξεκινήσεις σήμερα.</h2>
+      <p class="sec-p">Έτοιμα σετ ερωτήσεων με εξήγηση σε κάθε απάντηση και δοκιμαστική εξέταση στο τέλος.</p>
+      <ul class="certs" id="cert-list"></ul>
+    </div>
+  </section>
+
+  <section class="sec" id="features">
+    <div class="wrap">
+      <h2 class="sec-h">Όλη η προετοιμασία σε μια εφαρμογή ερωταπαντήσεων.</h2>
+      <p class="sec-p">Εξασκείσαι σε συγκεκριμένη ύλη, μαθαίνεις από κάθε λάθος και δοκιμάζεσαι σε μορφή εξέτασης, για να δεις πώς τα πήγες πριν από την πραγματική.</p>
+      <div class="bento">
+        <article class="tile t-explain">
+          <div class="tile-copy">
+            <h3>Κάθε απάντηση έρχεται με το γιατί.</h3>
+            <p>Μετά τον έλεγχο βλέπεις τι διάλεξες, ποιο ήταν το σωστό και γιατί ισχύει το καθένα. Υπάρχει και «Δεν ξέρω», για να μη μαντεύεις.</p>
+            <div class="chip-row"><span class="tag">Μία σωστή</span><span class="tag">Πολλές σωστές</span><span class="tag">Σενάρια</span><span class="tag">Κώδικας</span></div>
+          </div>
+          <div class="shot" style="--y:282">
+            <img class="l" src="img/prc-multi-wrong-light.webp" width="390" height="844" loading="lazy" alt="Ερώτηση «Επίλεξε 2» μετά τον έλεγχο, με τη σωστή και τη λάθος επιλογή σημειωμένες και εξήγηση κάτω από την καθεμία.">
+            <img class="d" src="img/prc-multi-wrong-dark.webp" width="390" height="844" loading="lazy" alt="">
+          </div>
+        </article>
+        <article class="tile t-exam">
+          <div class="tile-copy">
+            <h3>Δοκιμαστική με αληθινό χρονόμετρο.</h3>
+            <p>Ο χρόνος δεν σταματά αν κλείσεις την εφαρμογή, όπως στην εξέταση. Στο τέλος βλέπεις και το «15 από 20».</p>
+          </div>
+          <div class="shot" style="--y:0">
+            <img class="l" src="img/exm-low-light.webp" width="390" height="844" loading="lazy" alt="Δοκιμαστική εξέταση στην ερώτηση 15 από 20, με την ένδειξη «Απομένουν 04:19».">
+            <img class="d" src="img/exm-low-dark.webp" width="390" height="844" loading="lazy" alt="">
+          </div>
+        </article>
+        <article class="tile t-progress">
+          <div class="tile-copy">
+            <h3>Πρόοδος χωρίς φούσκωμα.</h3>
+            <p>Τέσσερις χωριστοί δείκτες, με ποσοστό μόνο όταν υπάρχουν αρκετές απαντήσεις.</p>
+          </div>
+          <div class="nums" role="list" aria-label="Παράδειγμα προόδου">
+            <div role="listitem"><b>22/24</b><span>Κάλυψη</span></div>
+            <div role="listitem"><b>3/8</b><span>Ανάγνωση</span></div>
+            <div role="listitem"><b>65%</b><span>Πρώτη απάντηση</span></div>
+            <div role="listitem"><b>60%</b><span>Τελευταίες 20</span></div>
+          </div>
+          <p class="no-score">Παράδειγμα. Και κανένα <s>«Έτοιμος κατά 72%»</s>.</p>
+        </article>
+        <article class="tile t-share">
+          <div class="tile-copy">
+            <h3>Φτιάξε το δικό σου σετ και μοιράσου το.</h3>
+            <p>Γράψε ερωτήσεις μία μία ή φέρε τες από JSON, και στείλε έναν σύνδεσμο στην ομάδα σου. Ο σύνδεσμος δίνει πρόσβαση μόνο για μελέτη και ανακαλείται με ένα πάτημα.</p>
+          </div>
+          <div class="shot" style="--y:420">
+            <img class="l" src="img/mng-participants-light.webp" width="390" height="844" loading="lazy" alt="Σύνδεσμος πρόσκλησης με τα κουμπιά Κοινοποίηση, Αντιγραφή και Ανάκληση συνδέσμου.">
+            <img class="d" src="img/mng-participants-dark.webp" width="390" height="844" loading="lazy" alt="">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="teaser-h">
+    <div class="wrap">
+      <div class="teaser-head">
+        <h2 class="sec-h" id="teaser-h">Δες το σε 20 δευτερόλεπτα.</h2>
+      </div>
+      <div class="teaser-frame">
+        <video id="teaser-video" controls playsinline preload="none" poster="media/teaser-poster.webp" width="1920" height="1080">
+          <source src="media/teaser.mp4" type="video/mp4">
+          Ο browser σου δεν παίζει αυτό το βίντεο. <a href="media/teaser.mp4">Άνοιξέ το σε νέα καρτέλα</a>.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="creators">
+    <div class="wrap">
+      <h2 class="sec-h">Για όποιον γράφει τις ερωτήσεις.</h2>
+      <p class="sec-p">Εκπαιδευτές, team leads και ομάδες μελέτης στήνουν τις δικές τους ερωταπαντήσεις και βλέπουν πού δυσκολεύονται οι άλλοι.</p>
+      <dl class="dl">
+        <div><dt>JSON ή μία μία</dt><dd>Φέρε τις ερωτήσεις που ήδη έχεις από αρχείο JSON, ή γράψε τες στον επεξεργαστή.</dd></div>
+        <div><dt>Εκδόσεις, όχι αντικαταστάσεις</dt><dd>Όταν διορθώνεις μια δημοσιευμένη ερώτηση, δημιουργείται νέα έκδοση. Τα παλιά αποτελέσματα μένουν όπως ήταν.</dd></div>
+        <div><dt>Έλεγχος ερώτησης</dt><dd>Όταν μια ερώτηση έχει πολλά λάθη, βλέπεις τι διάλεξε η ομάδα σε κάθε επιλογή και αποφασίζεις αν θέλει διόρθωση.</dd></div>
+        <div><dt>Συντάκτες και μελέτη ως μαθητής</dt><dd>Γράψε μαζί με άλλους, και εξασκήσου κι εσύ στο δικό σου σετ χωρίς να μπαίνεις στα στατιστικά της ομάδας.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <h2 class="sec-h">Συχνές ερωτήσεις</h2>
+      <div class="faq">
+        <details><summary>Σε τι βοηθάει περισσότερο;<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Στο να εξασκηθείς πάνω σε συγκεκριμένη ύλη με ερωταπαντήσεις, και να δοκιμάσεις τον εαυτό σου σε μορφή εξέτασης, με χρόνο, για να δεις πώς τα πήγες πριν από την πραγματική.</p></details>
+        <details><summary>Κοστίζει κάτι;<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Όχι. Το Study Workspace είναι δωρεάν, και για όσους μελετούν και για όσους φτιάχνουν ερωτήσεις.</p></details>
+        <details><summary>Χρειάζεται να κατεβάσω κάτι;<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Όχι. Ανοίγει στο browser, στο <a href="https://study.theodosiou.me">study.theodosiou.me</a>, και είναι φτιαγμένο πρώτα για κινητό. Εφαρμογές για iOS και Android έρχονται σύντομα.</p></details>
+        <details><summary>Μπορώ να φέρω ερωτήσεις που ήδη έχω;<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Ναι, από αρχείο JSON. Μπορείς επίσης να τις γράψεις μία μία στον επεξεργαστή ερωτήσεων.</p></details>
+        <details><summary>Ποιος βλέπει τα σετ ερωτήσεων που φτιάχνω;<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Μόνο όσοι έχουν τον σύνδεσμο πρόσκλησης και μπουν στον λογαριασμό τους. Κάθε σετ είναι ιδιωτικό μέχρι να το μοιραστείς.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="dark">
+  <section class="close">
+    <div class="wrap"><div class="close-in">
+      <div>
+        <h2>Η επόμενη ερώτηση σε περιμένει.</h2>
+        <p>Δωρεάν, στο browser. Αρκεί ένα email για λογαριασμό. Εφαρμογές για iOS και Android έρχονται σύντομα.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="https://study.theodosiou.me">Ξεκίνα την εξάσκηση <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="url">study.theodosiou.me</p>
+      </div>
+    </div></div>
+  </section>
+  <footer>
+    <div class="wrap">
+      <span>© Study Workspace</span>
+      <span class="love">Built with <svg aria-label="love" role="img"><use href="#i-heart"/></svg> by <a href="https://anastasios.theodosiou.me">Anastasios Theodosiou</a></span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(() => {
+  /* Certifications that already exist in the app. Fill from the owner's confirmed list; the section stays hidden while empty. */
+  const CERTS = [];
+  const list = document.getElementById('cert-list');
+  if (CERTS.length) {
+    list.innerHTML = CERTS.map(c => `<li class="cert"><span class="vendor" aria-hidden="true">${c.v}</span><b>${c.name}</b><span>${c.meta}</span></li>`).join('');
+    document.getElementById('certifications').hidden = false;
+  } else {
+    document.querySelectorAll('[data-certs-link]').forEach(a => a.remove());
+  }
+
+  const bar = document.getElementById('top-bar');
+  const onScroll = () => bar.classList.toggle('scrolled', scrollY > 8);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  const form = document.getElementById('demo');
+  const result = document.getElementById('result');
+  const foot = document.getElementById('demo-foot');
+  const opts = [...form.querySelectorAll('.opt')];
+  const ICON = (id) => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
+
+  function grade(dontKnow) {
+    const chosen = form.querySelector('input:checked');
+    let right = false;
+    opts.forEach((li) => {
+      const ok = li.dataset.ok === '1';
+      const mine = chosen && li.contains(chosen);
+      const v = li.querySelector('.verdict');
+      if (ok) { li.classList.add('is-correct'); v.innerHTML = ICON('i-ok') + (mine ? 'Η απάντησή σου, σωστή' : 'Σωστή απάντηση'); }
+      else if (mine) { li.classList.add('is-wrong'); v.innerHTML = ICON('i-no') + 'Η απάντησή σου'; }
+      else { li.classList.add('is-other'); v.textContent = 'Λάθος επιλογή'; }
+      if (mine && ok) right = true;
+      li.querySelector('input').disabled = true;
+    });
+    form.classList.add('graded');
+    const head = dontKnow ? 'Δεν πειράζει. Γι’ αυτό υπάρχει το «Δεν ξέρω».' : right ? 'Σωστά.' : 'Όχι αυτή τη φορά.';
+    result.innerHTML = `<b>${head}</b>Στο EC2 η AWS φροντίζει την ασφάλεια <em>του</em> cloud: εγκαταστάσεις, υλικό, δίκτυο. Εσύ φροντίζεις ό,τι τρέχει <em>μέσα</em> σε αυτό, από το λειτουργικό σύστημα και πάνω.<br><a class="guide" href="https://study.theodosiou.me">${ICON('i-book')}Συνέχισε με τις επόμενες 19 στην εφαρμογή</a>`;
+    result.hidden = false;
+    foot.innerHTML = '<button class="btn btn-quiet" type="button" id="again">Ξανά από την αρχή</button>';
+    document.getElementById('again').addEventListener('click', reset);
+    result.querySelector('b').setAttribute('tabindex', '-1');
+    result.querySelector('b').focus({ preventScroll: true });
+  }
+  function reset() {
+    form.classList.remove('graded');
+    opts.forEach((li) => { li.classList.remove('is-correct', 'is-wrong', 'is-other'); const i = li.querySelector('input'); i.disabled = false; i.checked = false; li.querySelector('.verdict').textContent = ''; });
+    result.hidden = true;
+    foot.innerHTML = '<button class="btn btn-primary" type="submit" id="check" disabled>Έλεγχος απάντησης</button><button class="linkbtn" type="button" id="dk">Δεν ξέρω</button><span class="hint" id="hint">Διάλεξε μία απάντηση για να δεις γιατί.</span>';
+    bind();
+    form.querySelector('input').focus();
+  }
+  function bind() {
+    const c = document.getElementById('check'), h = document.getElementById('hint');
+    form.onchange = () => { c.disabled = false; h.textContent = ''; };
+    document.getElementById('dk').addEventListener('click', () => { const ch = form.querySelector('input:checked'); if (ch) ch.checked = false; grade(true); });
+  }
+  form.addEventListener('submit', (e) => { e.preventDefault(); if (form.querySelector('input:checked')) grade(false); });
+  bind();
+})();
+</script>
+
+</body></html>
